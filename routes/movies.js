@@ -6,7 +6,7 @@ const {
 } = require('../controllers/movies');
 
 router.get('/', getMovies);
-
+// создание фильма
 router.post('/', celebrate({
   body: Joi.object().keys({
     country: Joi.string()
@@ -31,7 +31,7 @@ router.post('/', celebrate({
       .required(),
   }),
 }), createMovies);
-
+// удаление фильма
 router.delete('/:movieId', celebrate({
   params: Joi.object().keys({
     movieId: Joi.string().hex().length(24)

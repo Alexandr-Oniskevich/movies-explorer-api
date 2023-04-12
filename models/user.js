@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 
-// Схема базы данных пользователя
 const userSchema = new mongoose.Schema({
   name: {
     type: String,

@@ -5,7 +5,6 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const { errors } = require('celebrate');
 const { celebrate, Joi } = require('celebrate');
-
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const usersRouter = require('./routes/users');
 const moviesRouter = require('./routes/movies');
@@ -75,7 +74,6 @@ app.use('/movies', auth, moviesRouter);
 
 app.use('*', auth, (req, res, next) => {
   next(new NotFoundError('Запрашиваемая страница не найдена'));
-  // res.status(404).send({ message: 'Запрашиваемая страница не найдена' });
 });
 
 app.use(errorLogger);
@@ -97,7 +95,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  // Если всё работает, консоль покажет, какой порт приложение слушает
-  // eslint-disable-next-line no-console
   console.log(`App listening on port ${PORT}`);
 });

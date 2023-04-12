@@ -4,7 +4,7 @@
 
 Адрес репозитория: https://github.com/Alexandr-Oniskevich/movies-explorer-api
 
-## Ссылки на проект
+## Ссылки на бекенд
 
 IP-адрес 158.160.46.82
 

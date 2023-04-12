@@ -100,7 +100,6 @@ module.exports = {
   getUsersId,
   createUsers,
   changeUserInfo,
-  // changeAvatar,
   login,
   getCurrentUser,
 };

@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 
-// Схема базы данных карточки
 const moviesSchema = new mongoose.Schema({
   country: {
     type: String,
