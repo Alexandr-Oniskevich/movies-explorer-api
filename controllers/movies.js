@@ -5,9 +5,12 @@ const Forbidden = require('../utils/errors/Forbidden');
 
 const { SUCCESS } = require('../utils/constants');
 
-const getMovies = (req, res, next) => Movies.find({}).sort({ createdAt: -1 })
-  .then((movies) => res.send(movies))
-  .catch(next);
+const getMovies = (req, res, next) => {
+  const owner = req.user._id;
+  Movies.find({ owner }).sort({ createdAt: -1 })
+    .then((movies) => res.send(movies))
+    .catch(next);
+};
 // создание фильма
 const createMovies = (req, res, next) => {
   Movies.create({ owner: req.user._id, ...req.body })
@@ -20,6 +23,7 @@ const createMovies = (req, res, next) => {
       }
     });
 };
+
 // удаление фильма
 const deleteMovies = (req, res, next) => Movies.findById(req.params.movieId)
   .then((movie) => {

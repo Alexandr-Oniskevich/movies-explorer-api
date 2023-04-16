@@ -5,31 +5,22 @@ const moviesSchema = new mongoose.Schema({
   country: {
     type: String,
     required: true,
-    minlength: 2,
-    maxlength: 30,
   },
   director: {
     type: String,
     required: true,
-    minlength: 2,
-    maxlength: 30,
   },
   duration: {
     type: Number,
     required: true,
-    minlength: 2,
-    maxlength: 30,
   },
   year: {
     type: String,
     required: true,
-    minlength: 2,
-    maxlength: 30,
   },
   description: {
     type: String,
     required: true,
-    minlength: 2,
   },
   image: {
     type: String,
@@ -66,14 +57,10 @@ const moviesSchema = new mongoose.Schema({
   nameRU: {
     type: String,
     required: true,
-    minlength: 2,
-    maxlength: 30,
   },
   nameEN: {
     type: String,
     required: true,
-    minlength: 2,
-    maxlength: 30,
   },
 });
 
