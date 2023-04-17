@@ -7,14 +7,15 @@ const limiter = require('./middlewares/limiter');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const { PORT = 3000 } = process.env;
+const { MONGO, NODE_ENV } = process.env;
 const handlerErrors = require('./middlewares/handlerErrors');
-// const NotFoundError = require('./utils/errors/NotFoundError');
 const Router = require('./routes/index');
+
+const { MONGO_DEV } = require('./utils/constants');
 
 // подключаемся к серверу mongo
 mongoose.set('strictQuery', false);
-mongoose.connect(process.env.MONGO);
-
+mongoose.connect(NODE_ENV === 'production' ? MONGO : MONGO_DEV);
 const app = express();
 app.use(cors());
 

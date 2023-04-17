@@ -89,6 +89,8 @@ const changeUserInfo = (req, res, next) => {
     .catch((error) => {
       if (error.name === 'ValidationError' || error.name === 'CastError') {
         next(new BadRequestError('Переданы некорректные данные при обновлении профиля'));
+      } else if (error.codeName === 'DuplicateKey') {
+        next(new BadRequestError('Пользователь с таким email уже существует в базе'));
       } else {
         next(error);
       }
